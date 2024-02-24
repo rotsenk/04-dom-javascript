@@ -1,5 +1,26 @@
 ## Buscar elementos
 - Tendremos la página index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer y Modificar</title>
+</head>
+<body>
+    <h1>Hola al DOM</h1>
+    <p id="parrafo">Texto estático</p>
+    <h3>Título uno h3</h3>
+    <h3 class="h3-danger">Título dos h3</h3>
+    <h3 id="h3-secondary">Título tres h3</h3>
+
+    <h4 class="h3-danger">Título dos h3</h4>
+</body>
+<script src="app.js"></script>
+</html>
+```
+
 - El script es el siguiente, solamente para explicar lo de la selección de elementos
 ```javascript
 document.querySelector('h3') //.textContent = 'Texto desde el JavaScript';
