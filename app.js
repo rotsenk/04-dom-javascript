@@ -1,18 +1,27 @@
-//veremos un ejemplo de cuando createDocumentFragment se nos escapa de la mano
-const lista = document.querySelector('#lista');
+const container = document.querySelector('.container');
 
-const arrayElement = ["primer elemento", "segundo", "tercero"];
+const span = document.getElementById('span');
+let contador = 0;
 
-//una vez nosotros tenemos el template en nuestro html tenemos que leer
-const template = document.querySelector('#template-li').content;//es más sencillo de acceder a cada elemento html
-const fragment = document.createDocumentFragment();
-
-arrayElement.forEach((item) => {
-    template.querySelector('.list span').textContent = item;//estoy accediendo a lo que va a ir cambiando
-    //para que esto sea empujado en el fragment, tenemos que clonar la línea
-    const clone = template.cloneNode(true);
-    fragment.appendChild(clone);
+//en esta podemos hacer un truquito, y es pasarle un evento a la función la "e" de evento
+container.addEventListener('click', (e) => {
+    //console.log(e.target);//target, selecciona el elemento donde demos click
+    //console.log(e.target.classList.contains('btn-info'));
+    if (e.target.classList.contains('btn-info')) {
+        contador++;
+        span.textContent = contador;
+    }
+    if (e.target.classList.contains('btn-danger')) {
+        contador--;
+        span.textContent = contador;
+    }
+    e.stopPropagation();
 });
 
-lista.appendChild(fragment);
+//nosotros podemos acceder al body
+document.body.addEventListener('click', () => {
+    console.log('diste click');
+    //esto cada vez que damos clic, aparece una propagación, porque sea donde sea, lo detecta
+    //por eso debemos decirle que, cuando detectemos un elemento dentro del container, solamente esos eventos se ejecuten y no se haga una propagación
+});
 
