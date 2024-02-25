@@ -1,4 +1,4 @@
-//veremos un ejemplo de cuando creatTemplate se nos escapa de la mano
+//veremos un ejemplo de cuando createDocumentFragment se nos escapa de la mano
 const lista = document.querySelector('#lista');
 
 const arrayElement = ["primer elemento", "segundo", "tercero"];
